@@ -33,7 +33,7 @@ class Handler(webapp2.RequestHandler):
 
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
-        
+
 class MainHandler(Handler):
     def get(self):
         self.render("main.html")
@@ -46,7 +46,7 @@ class Art(db.Model):
 
 class MainPage(Handler):
     def render_main(self, title="", art="", error=""):
-        arts = db.GqlQuery("SELECT * FROM Art ORDER BY created DESC LIMIT 5 OFFSET 0")
+        arts = db.GqlQuery("SELECT * FROM Art ORDER BY created DESC LIMIT 5")
         self.render("main.html", title=title, art=art, error=error, arts=arts)
 
     def get(self):
