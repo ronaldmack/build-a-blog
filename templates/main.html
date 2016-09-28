@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+{% for art in arts %}
+  <div class="art">
+    <a href="/blog/{{art.key().id()}}"><div class="art-title">{{art.title}}</div></a>
+    <pre class="art-body">{{art.art}}</pre>
+  </div>
+{% endfor %}
+
+
+{% endblock %}
